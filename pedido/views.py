@@ -4,8 +4,6 @@ from .models import Pedido, ItemPedido, CupomDesconto
 from produto.models import Produto, Categoria
 import json
 
-# Create your views here.
-
 def finalizar_pedido(request):  
     if request.method == "GET":
         categorias = Categoria.objects.all()
@@ -71,10 +69,6 @@ def finalizar_pedido(request):
             return render(request, 'pedido_realizado.html')
         else:
             return redirect('/pedidos/finalizar_pedido?erro=1')
-        
-
-
-
 
 def validaCupom(request):
     cupom = request.POST.get('cupom')
